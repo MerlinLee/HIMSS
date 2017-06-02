@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HIMSS.iml" filepath="$PROJECT_DIR$/.idea/modules/HIMSS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HIMSS_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HIMSS_main.iml" group="HIMSS" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HIMSS_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HIMSS_test.iml" group="HIMSS" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="/easyUI/jquery.min.js"></script>
+    <script type="text/javascript" src="/easyUI/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="/easyUI/themes/default/easyui.css" type="text/css"/>
+    <link rel="stylesheet" href="/easyUI/themes/icon.css" type="text/css"/>
+    <!--<link rel="stylesheet" href="/easyUI/jquery.dataTables.min.css" type="text/css"/>-->
+    <!--<script type="text/javascript" src="/easyUI/jquery.dataTables.min.js"/>-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" type="text/css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"/>
+    <script type="text/javascript" src="/easyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "serverSide": true,
+                'ajax': {
+                    'url': '/userviews/dataTransfer',
+                    'type': 'POST'
+                },
+                "bFilter": false,
+                "language": {
+                    "lengthMenu": "  _MENU_ 条数据",
+                    "emptyTable": "表格中没有数据~",
+                    "info": "显示 _START_ 到 _END_ 条数据 共 _TOTAL_ 条数据",
+                    "infoEmpty": "没有数据~",
+                    "infoFiltered": "(在 _MAX_ 条数据中查询)",
+                    "lengthMenu": "显示 _MENU_ 条数据",
+                    "search": "查询:",
+                    "zeroRecords": "没有找到对应的数据",
+                    "paginate": {
+                        "previous":"上一页",
+                        "next": "下一页",
+                        "last": "末页",
+                        "first": "首页"
+                    }
+                },
+                "columns": [
+                    { "data": "userId" },
+                    { "data": "userAccountId" },
+                    { "data": "userName" },
+                    { "data": "userAddress" },
+                    { "data": "password" }
+                ]
+            } );
+        } );
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("th").click(function () {
+                $("#myDIV").hide();
+            });
+        });
+    </script>
+    <!--<script type="text/javascript">-->
+        <!--function loadXMLDoc()-->
+        <!--{-->
+            <!--var xmlhttp;-->
+            <!--if (window.XMLHttpRequest)-->
+            <!--{// code for IE7+, Firefox, Chrome, Opera, Safari-->
+                <!--xmlhttp=new XMLHttpRequest();-->
+            <!--}-->
+            <!--else-->
+            <!--{// code for IE6, IE5-->
+                <!--xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");-->
+            <!--}-->
+            <!--xmlhttp.onreadystatechange=function()-->
+            <!--{-->
+                <!--if (xmlhttp.readyState==4 && xmlhttp.status==200)-->
+                <!--{-->
+
+                <!--}-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
+    <!--<script>-->
+        <!--var dataTable_config = {//jquery_datatable插件的默认参数皮质-->
+            <!--//"bStateSave": true, //是否把获得数据存入cookie-->
+
+            <!--//"bLengthChange":false, //关闭每页显示多少条数据-->
+            <!--"bProcessing": true,-->
+            <!--"bAutoWidth":false,//自动宽度-->
+            <!--"bServerSide": true,-->
+            <!--"sAjaxSource": "<%=request.getContextPath()%>/get2",-->
+            <!--"fnServerData":retrieveData,-->
+            <!--"bPaginate": true,  //是否分页。-->
+            <!--"bFilter": false,-->
+            <!--"sPaginationType": "full_numbers",      //分页样式-->
+            <!--"pageLength": 10,-->
+            <!--"aoColumns" : [ {-->
+                <!--"mDataProp" : "id",-->
+            <!--}, {-->
+                <!--"mDataProp" : "rentRuleId"-->
+            <!--}, {-->
+                <!--"mDataProp" : "ruleName"-->
+            <!--}, {-->
+                <!--"mDataProp" : "isEnable"-->
+            <!--}, {-->
+                <!--"mDataProp" : "id"-->
+            <!--}, ],-->
+            <!--"lengthMenu": [-->
+                <!--[10, 15, 20],-->
+                <!--[10, 15, 20] // 更改每页显示记录数-->
+            <!--],-->
+
+            <!--"language": {-->
+                <!--"lengthMenu": "  _MENU_ 条数据",-->
+                <!--"emptyTable": "表格中没有数据~",-->
+                <!--"info": "显示 _START_ 到 _END_ 条数据 共 _TOTAL_ 条数据",-->
+                <!--"infoEmpty": "没有数据~",-->
+                <!--"infoFiltered": "(在 _MAX_ 条数据中查询)",-->
+                <!--"lengthMenu": "显示 _MENU_ 条数据",-->
+                <!--"search": "查询:",-->
+                <!--"zeroRecords": "没有找到对应的数据",-->
+                <!--"paginate": {-->
+                    <!--"previous":"上一页",-->
+                    <!--"next": "下一页",-->
+                    <!--"last": "末页",-->
+                    <!--"first": "首页"-->
+                <!--}-->
+            <!--},-->
+            <!--"columnDefs": [-->
+                <!--{-->
+                    <!--sDefaultContent: '',-->
+                    <!--aTargets: [ '_all' ]-->
+                <!--}-->
+                <!--,{  // 设置默认值-->
+                    <!--'orderable': false,-->
+                    <!--aTargets: [0],-->
+                <!--},-->
+                <!--{  aTargets: [0],-->
+                    <!--"render": function ( data, type, full, meta ) {-->
+                        <!--return '<input type="checkbox" class="group-checkable" data-set="#favourable .checkboxes"/>';-->
+                    <!--}-->
+                <!--},-->
+            <!--],-->
+            <!--"order": [-->
+                <!--[1, "asc"]-->
+            <!--]-->
+        <!--};-->
+
+        <!--oTable = $('#favourable').dataTable(dataTable_config);-->
+
+        <!--function retrieveData( sSource, aoData, fnCallback ) {-->
+            <!--//查询条件称加入参数数组-->
+            <!--var rentRuleId =document.getElementById('rentRuleId').value;-->
+            <!--//alert(rentRuleId);-->
+            <!--$.ajax( {-->
+                <!--type: "POST",-->
+                <!--url: sSource,-->
+                <!--dataType:"json",-->
+                <!--data: "jsonParam="+JSON.stringify(aoData)+"&isHistory=0&rentRuleId="+rentRuleId,-->
+                <!--success: function(data) {-->
+                    <!--//$("#url_sortdata").val(data.aaData);-->
+                    <!--fnCallback(data); //服务器端返回的对象的returnObject部分是要求的格式-->
+                <!--}-->
+            <!--});-->
+        <!--}-->
+    <!--</script>-->
+    <title>测试easyUI的使用</title>
+</head>
+<body>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>userID</th>
+        <th>userAccountID</th>
+        <th>userName</th>
+        <th>userAddress</th>
+        <th>PASSWORD</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>userID</th>
+        <th>userAccountID</th>
+        <th>userName</th>
+        <th>userAddress</th>
+        <th>PASSWORD</th>
+    </tr>
+    </tfoot>
+    <tbody>
+
+    </tbody>
+</table>
+<div id="myDIV">点击表格,我就消失了!</div>
+</body>
+</html>

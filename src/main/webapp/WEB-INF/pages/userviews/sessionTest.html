@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+    <title>登录社区高龄居民健康数据管理系统</title>
+    <script type="text/javascript" src="/bootstrap-3.3.7/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap-3.3.7/js/jquerysession.js"></script>
+    <script type="text/javascript" src="/easyUI/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="/easyUI/themes/default/easyui.css" type="text/css"/>
+    <script type="text/javascript" src="/easyUI/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="/easyUI/themes/icon.css" type="text/css"/>
+    <link href="/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link href="/bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"/>
+    <!-- Custom styles for this template -->
+    <link href="/bootstrap-3.3.7/css/signin.css" rel="stylesheet">
+    <script>
+        //        $.ajaxSetup({
+        //            contentType: "application/x-www-form-urlencoded; charset=utf-8"
+        //        });
+        //        $(document).ready(function () {
+        //            $("#login").click(function () {
+        //                var submit_data = $("#myForm").serializeObject();
+        //                alert(JSON.stringify(submit_data));
+        //                $.post("/admin/login_check",JSON.stringify(submit_data),function () {
+        //                    alert(JSON.stringify(data));
+        //                });
+        //
+        //            });
+        //        });
+        $(document).ready(function () {
+            $("#getSession").click(function () {
+                $.get("/userviews/session",function (data) {
+                    alert(JSON.stringify(data));
+                });
+            });
+        });
+        $.fn.serializeObject = function()
+        {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    </script>
+</head>
+
+<body>
+
+<div class="container">
+    <button id="getSession" class="btn" type="button">click for getting Session</button>
+</div> <!-- /container -->
+<div id="showText"></div>
+<script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

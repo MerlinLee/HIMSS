@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - HIMSDB@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="HIMSDB">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bookbest"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="quick4j"/>
+    <schema id="8" parent="1" name="springdemo"/>
+    <schema id="9" parent="1" name="springfitdb"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="test2"/>
+    <table id="12" parent="2" name="t_HealthRecord"/>
+    <table id="13" parent="2" name="t_moduleprivilege"/>
+    <table id="14" parent="2" name="t_modules"/>
+    <table id="15" parent="2" name="t_privilege"/>
+    <table id="16" parent="2" name="t_role"/>
+    <table id="17" parent="2" name="t_roleprivilege"/>
+    <table id="18" parent="2" name="t_user_role"/>
+    <table id="19" parent="2" name="users"/>
+    <column id="20" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="12" name="userAccountID">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="12" name="date">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="23" parent="12" name="start_time">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="24" parent="12" name="end_time">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="25" parent="12" name="CaloriesOut">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="26" parent="12" name="max">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="27" parent="12" name="min">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="28" parent="12" name="minutes">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="29" parent="12" name="type_name">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="30" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="13" name="MPID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="13" name="MODULECODE">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="13" name="PRICODE">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="34" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MPID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="14" name="MODID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="14" name="MODULECODE">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="14" name="MODULENAME">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="14" name="PARENTCODE">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="39" parent="14" name="MODULEURI">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="40" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MODID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="15" name="PRIID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="15" name="PRICODE">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="15" name="PRINAME">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="44" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PRIID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="16" name="roleId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="16" name="roleCode">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="16" name="roleName">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="48" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>roleId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="17" name="RPID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="17" name="ROLECODE">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="17" name="MPID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="52" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>RPID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="18" name="ARID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="54" parent="18" name="userAccountId">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="18" name="roleCode">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="56" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ARID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="19" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="19" name="userAccountId">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="19" name="userName">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="19" name="userAddress">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="19" name="password">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="62" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

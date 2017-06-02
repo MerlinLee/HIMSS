@@ -54,6 +54,7 @@
           <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Gradle: com.mchange:mchange-commons-java:0.2.11" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/servlet-api/2.5/5959582d97d8b61f4d154ca9e495aafd16726e34/servlet-api-2.5.jar" />
         </element>
       </element>
     </root>

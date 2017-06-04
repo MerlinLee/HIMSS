@@ -71,6 +71,20 @@ public class MainController {
         return "admin/users";
     }
 
+    // 查看用户详情
+// @PathVariable可以收集url中的变量，需匹配的变量用{}括起来
+// 例如：访问 localhost:8080/admin/users/show/1 ，将匹配 id = 1
+    @RequestMapping(value = "/admin/users/show/{id}", method = RequestMethod.GET)
+    public String showUser(@PathVariable("id") Integer userId, ModelMap modelMap) {
+
+        // 找到userId所表示的用户
+        UsersEntity userEntity = userRepository.findOne(userId);
+
+        // 传递给请求页面
+        modelMap.addAttribute("user", userEntity);
+        return "admin/userDetail";
+    }
+
     // 删除用户
     @RequestMapping(value = "/admin/users/delete/{id}", method = RequestMethod.GET)
     public String deleteUser(@PathVariable("id") Integer userId) {
@@ -219,5 +233,54 @@ public class MainController {
         maps.put("recordsFiltered", totalCount);
         maps.put("data", recordList);
         return new Gson().toJson(maps).toString();
+    }
+
+    // get请求，访问添加用户 页面
+    @RequestMapping(value = "/admin/users/add", method = RequestMethod.GET)
+    public String addUser() {
+        // 转到 admin/addUser.jsp页面
+        return "admin/addUser";
+    }
+
+    // post请求，处理添加用户请求，并重定向到用户管理页面
+    @RequestMapping(value = "/admin/users/addP", method = RequestMethod.POST)
+    public String addUserPost(@ModelAttribute("user") UsersEntity usersEntity) {
+        // 注意此处，post请求传递过来的是一个UserEntity对象，里面包含了该用户的信息
+        // 通过@ModelAttribute()注解可以获取传递过来的'user'，并创建这个对象
+
+        // 数据库中添加一个用户，该步暂时不会刷新缓存
+        //userRepository.save(userEntity);
+
+        // 数据库中添加一个用户，并立即刷新缓存
+        userRepository.saveAndFlush(usersEntity);
+        TUserRoleEntity userRoleEntity_insert = new TUserRoleEntity();
+        userRoleEntity_insert.setRoleCode("NORMAL");
+        userRoleEntity_insert.setUserAccountId(usersEntity.getUserAccountId());
+        userRoleRepository.saveAndFlush(userRoleEntity_insert);
+        // 重定向到用户管理页面，方法为 redirect:url
+        return "redirect:/admin/users";
+    }
+
+    // 更新用户信息 页面
+    @RequestMapping(value = "/admin/users/update/{id}", method = RequestMethod.GET)
+    public String updateUser(@PathVariable("id") Integer userId, ModelMap modelMap) {
+
+        // 找到userId所表示的用户
+        UsersEntity userEntity = userRepository.findOne(userId);
+
+        // 传递给请求页面
+        modelMap.addAttribute("user", userEntity);
+        return "admin/updateUser";
+    }
+
+    // 更新用户信息 操作
+    @RequestMapping(value = "/admin/users/updateP", method = RequestMethod.POST)
+    public String updateUserPost(@ModelAttribute("userP") UsersEntity user) {
+
+        // 更新用户信息
+        userRepository.updateUser(user.getUserAccountId(), user.getUserName(),
+                user.getUserAddress(), user.getPassword(), user.getUserId());
+        userRepository.flush(); // 刷新缓冲区
+        return "redirect:/admin/users";
     }
 }

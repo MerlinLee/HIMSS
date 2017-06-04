@@ -12,12 +12,15 @@ import cn.edu.jlu.limf.repository.THealthRecordRepository;
 import cn.edu.jlu.limf.repository.UserRepository;
 import cn.edu.jlu.limf.repository.UserRoleRepository;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -101,5 +104,21 @@ public class AndroidHIMSController {
 
 //        return json_info_to_bean.toJson(tHealthRecordEntity);
 //        return json_info;
+    }
+
+    //接收android端上传的List对象
+    @RequestMapping(value = "/uploadData",method = POST)
+    public @ResponseBody String uploadData(@RequestBody String json_list){
+        List<THealthRecordEntity> tHealthRecordEntities=new Gson().fromJson(json_list,new TypeToken<List<THealthRecordEntity>>(){}.getType());
+        int size = tHealthRecordEntities.size();
+        try {
+            for (int i=0;i<size;i++) {
+                tHealthRecordRepository.saveAndFlush(tHealthRecordEntities.get(i));
+            }
+            return "SUCCESS";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "FALSE";
+        }
     }
 }

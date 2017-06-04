@@ -192,4 +192,7 @@ public class MainController {
 
     @RequestMapping(value = "/userviews/goTOadmin",method = RequestMethod.GET)
     public String goTOadmin(){return "/userviews/goTOadmin";}
+
+
+
 }

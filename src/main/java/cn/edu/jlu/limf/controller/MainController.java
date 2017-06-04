@@ -4,10 +4,12 @@ package cn.edu.jlu.limf.controller;
  * Created by merlin Lee on 17-5-2.
  */
 
+import cn.edu.jlu.limf.model.THealthRecordEntity;
 import cn.edu.jlu.limf.model.TUserRoleEntity;
 import cn.edu.jlu.limf.model.UserLoginInfoBean;
 import cn.edu.jlu.limf.model.UsersEntity;
 import cn.edu.jlu.limf.repository.RoleRepository;
+import cn.edu.jlu.limf.repository.THealthRecordRepository;
 import cn.edu.jlu.limf.repository.UserRepository;
 import cn.edu.jlu.limf.repository.UserRoleRepository;
 import com.google.gson.Gson;
@@ -47,6 +49,8 @@ public class MainController {
     RoleRepository roleRepository;
     @Autowired
     UserRoleRepository userRoleRepository;
+    @Autowired
+    THealthRecordRepository tHealthRecordRepository;
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         return "index";
@@ -186,13 +190,34 @@ public class MainController {
         if(userRole.equals("ROOT")){
             return "/userviews/goTOadmin";
         }else {
-            return "/userviews/sessionTest";
+            return "/userviews/normal";
         }
     }
 
     @RequestMapping(value = "/userviews/goTOadmin",method = RequestMethod.GET)
     public String goTOadmin(){return "/userviews/goTOadmin";}
 
+    @RequestMapping(value = "/userviews/normal",method = RequestMethod.GET)
+    public String normal(){
+        return "/userviews/normal";
+    }
 
-
+    @RequestMapping(value = "/normal/userData",method = RequestMethod.POST)
+    public @ResponseBody String userData(HttpServletRequest req,
+                                         @RequestParam(required = false) String callback,
+                                         @RequestParam(required = false) String searchType,
+                                         @RequestParam(required = false) String draw,
+                                         @RequestParam(required = false) Integer start,
+                                         @RequestParam(required = false) Integer length){
+        HttpSession session_o = request.getSession(false);
+        String userAccountID=session_o.getAttribute("userAccountId").toString();
+        Map<String,Object> maps = new HashMap<>();
+        List<THealthRecordEntity> recordList = tHealthRecordRepository.findByUserAccountId(userAccountID);
+        int totalCount = (int)tHealthRecordRepository.count();
+        maps.put("draw", draw);
+        maps.put("recordsTotal", totalCount);
+        maps.put("recordsFiltered", totalCount);
+        maps.put("data", recordList);
+        return new Gson().toJson(maps).toString();
+    }
 }

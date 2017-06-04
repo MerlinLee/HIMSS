@@ -178,4 +178,18 @@ public class MainController {
     public String sessionTest(){
         return "/userviews/sessionTest";
     }
+
+    @RequestMapping(value = "/isAdmin",method = RequestMethod.GET)
+    public String isAdmin(){
+        HttpSession session_o = request.getSession(false);
+        String userRole=session_o.getAttribute("userRole").toString();
+        if(userRole.equals("ROOT")){
+            return "/userviews/goTOadmin";
+        }else {
+            return "/userviews/sessionTest";
+        }
+    }
+
+    @RequestMapping(value = "/userviews/goTOadmin",method = RequestMethod.GET)
+    public String goTOadmin(){return "/userviews/goTOadmin";}
 }

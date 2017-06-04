@@ -16,11 +16,11 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!--shiro测试 开始-->
-    <listener>
-        <listener-class>
-            org.springframework.web.context.request.RequestContextListener
-        </listener-class>
-    </listener>
+    <!--<listener>-->
+        <!--<listener-class>-->
+            <!--org.springframework.web.context.request.RequestContextListener-->
+        <!--</listener-class>-->
+    <!--</listener>-->
     <!--shiro测试 结束-->
     <filter>
         <filter-name>encodingFilter</filter-name>

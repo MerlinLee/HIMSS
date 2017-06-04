@@ -6,18 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="432915d3-b348-4139-b605-21e7931c9b49" name="Default" comment="20170604_2257">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/addUser.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/updateUser.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/userDetail.jsp" />
+    <list default="true" id="432915d3-b348-4139-b605-21e7931c9b49" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/cn/edu/jlu/limf/controller/MainController.class" afterPath="$PROJECT_DIR$/build/classes/main/cn/edu/jlu/limf/controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/cn/edu/jlu/limf/repository/THealthRecordRepository.class" afterPath="$PROJECT_DIR$/build/classes/main/cn/edu/jlu/limf/repository/THealthRecordRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/HIMSS-1.0-SNAPSHOT.war/WEB-INF/classes/cn/edu/jlu/limf/controller/MainController.class" afterPath="$PROJECT_DIR$/build/libs/exploded/HIMSS-1.0-SNAPSHOT.war/WEB-INF/classes/cn/edu/jlu/limf/controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/HIMSS-1.0-SNAPSHOT.war/WEB-INF/classes/cn/edu/jlu/limf/repository/THealthRecordRepository.class" afterPath="$PROJECT_DIR$/build/libs/exploded/HIMSS-1.0-SNAPSHOT.war/WEB-INF/classes/cn/edu/jlu/limf/repository/THealthRecordRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/jlu/limf/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/jlu/limf/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/edu/jlu/limf/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/cn/edu/jlu/limf/repository/UserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/userviews/normal.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/userviews/normal.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -1369,7 +1363,7 @@
       <workItem from="1496499033552" duration="10145000" />
       <workItem from="1496551506011" duration="6551000" />
       <workItem from="1496566956263" duration="6000" />
-      <workItem from="1496584685971" duration="3327000" />
+      <workItem from="1496584685971" duration="3339000" />
     </task>
     <task id="LOCAL-00001" summary="20170602_2238">
       <created>1496414345791</created>
@@ -1399,11 +1393,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496566923545</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="20170604_2257">
+      <created>1496588290204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496588290204</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149473000" />
+    <option name="totallyTimeSpent" value="149485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-7" width="1366" height="775" extended-state="6" />
